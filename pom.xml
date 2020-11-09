@@ -11,9 +11,9 @@
     </parent>
 
     <groupId>org.jsahad</groupId>
-    <artifactId>up42-features</artifactId>
+    <artifactId>metadata-service</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>Features :: Service</name>
+    <name>Metadata :: Service</name>
 
     <properties>
         <jackson.version>2.11.0</jackson.version>

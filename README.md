@@ -1,4 +1,4 @@
-[![josesahad](https://circleci.com/gh/josesahad/features-service.svg?style=svg)](https://circleci.com/gh/josesahad/features-service)
+[![josesahad](https://circleci.com/gh/josesahad/metadata-service.svg?style=svg)](https://circleci.com/gh/josesahad/metadata-service)
 
 # Feature Service
 Spring Boot Service to expose images metadata.

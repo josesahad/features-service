@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * Spring boot application entry point.
  */
 @SpringBootApplication
-public class FeatureServiceApplication implements WebMvcConfigurer {
+public class MetadataServiceApplication implements WebMvcConfigurer {
 
     /**
      * Spring boot application bootstrap. Application main method.
@@ -16,7 +16,7 @@ public class FeatureServiceApplication implements WebMvcConfigurer {
      * @param args JVM command arguments.
      */
     public static void main(String[] args) {
-        SpringApplication.run(FeatureServiceApplication.class, args);
+        SpringApplication.run(MetadataServiceApplication.class, args);
     }
 
 }
