@@ -1,4 +1,4 @@
-package org.jsahad.test.integration.data;
+package org.jsahad.test.integration.data.access;
 
 import static org.junit.Assert.assertEquals;
 
