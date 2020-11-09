@@ -29,7 +29,7 @@ public class FeatureAPITest {
 
     @Test
     public void testListAllFeatures() throws Exception {
-        mvc.perform(get("/features")
+        mvc.perform(get("/api/features")
         .contentType(MediaType.APPLICATION_JSON))
         .andExpect(status().isOk())
         .andExpect(jsonPath("$", hasSize(equalTo(2))))
@@ -47,7 +47,7 @@ public class FeatureAPITest {
 
     @Test
     public void testGetASingleFeature() throws Exception {
-        mvc.perform(get("/features/cf5dbe37-ab95-4af1-97ad-2637aec4ddf0")
+        mvc.perform(get("/api/features/cf5dbe37-ab95-4af1-97ad-2637aec4ddf0")
         .contentType(MediaType.APPLICATION_JSON))
         .andExpect(status().isOk())
         .andExpect(jsonPath("$.id", is("cf5dbe37-ab95-4af1-97ad-2637aec4ddf0")))
@@ -59,7 +59,7 @@ public class FeatureAPITest {
 
     @Test
     public void testGetANonExistingFeature() throws Exception {
-        mvc.perform(get("/features/cf5dbe37-ab95-4af1-97ad-2637aec4ddf4")
+        mvc.perform(get("/api/features/cf5dbe37-ab95-4af1-97ad-2637aec4ddf4")
         .contentType(MediaType.APPLICATION_JSON))
         .andExpect(status().isNotFound())
         .andExpect(jsonPath("$.error", is("Not Found")));
@@ -67,14 +67,14 @@ public class FeatureAPITest {
 
     @Test
     public void testGetQuicklook() throws Exception {
-        mvc.perform(get("/features/cf5dbe37-ab95-4af1-97ad-2637aec4ddf0/quicklook")
+        mvc.perform(get("/api/features/cf5dbe37-ab95-4af1-97ad-2637aec4ddf0/quicklook")
         .contentType(MediaType.IMAGE_PNG))
         .andExpect(status().isOk());
     }
 
     @Test
     public void testGetQuicklookForNonExistingFeature() throws Exception {
-        mvc.perform(get("/features/cf5dbe37-ab95-4af1-97ad-2637aec4ddf3/quicklook")
+        mvc.perform(get("/api/features/cf5dbe37-ab95-4af1-97ad-2637aec4ddf3/quicklook")
         .accept(MediaType.APPLICATION_JSON, MediaType.IMAGE_PNG))
         .andExpect(status().isNotFound())
         .andExpect(jsonPath("$.error", is("Not Found")));
@@ -82,7 +82,7 @@ public class FeatureAPITest {
 
     @Test
     public void testGet400Exception() throws Exception {
-        mvc.perform(get("/features/BAD-UUID")
+        mvc.perform(get("/api/features/BAD-UUID")
         .contentType(MediaType.APPLICATION_JSON))
         .andExpect(status().isBadRequest());
     }
