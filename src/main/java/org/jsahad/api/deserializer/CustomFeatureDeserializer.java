@@ -40,18 +40,16 @@ public class CustomFeatureDeserializer extends StdDeserializer<Feature> {
         String missionName = null;
         String quicklook = null;
 
-        if (node.get("properties") != null) {
-            timestamp = node.get("properties").get("timestamp").asLong();
+        if (node.has("properties")) {
+            if (node.get("properties").has("timestamp")) timestamp = node.get("properties").get("timestamp").asLong();
 
-            if (node.get("properties").get("acquisition") != null) {
-                beginViewingDate = node.get("properties").get("acquisition").get("beginViewingDate").asLong(0);
-                endViewingDate = node.get("properties").get("acquisition").get("endViewingDate").asLong(0);
-                missionName = node.get("properties").get("acquisition").get("missionName").asText("");
+            if (node.get("properties").has("acquisition")) {
+                if (node.get("properties").get("acquisition").has("beginViewingDate")) beginViewingDate = node.get("properties").get("acquisition").get("beginViewingDate").asLong(0);
+                if (node.get("properties").get("acquisition").has("endViewingDate")) endViewingDate = node.get("properties").get("acquisition").get("endViewingDate").asLong(0);
+                if (node.get("properties").get("acquisition").has("missionName")) missionName = node.get("properties").get("acquisition").get("missionName").asText("");
             }
         
-            if (node.get("properties").get("quicklook") != null) {
-                quicklook = node.get("properties").get("quicklook").asText("");
-            }
+            if (node.get("properties").has("quicklook")) quicklook = node.get("properties").get("quicklook").asText("");
         }
 
         return new Feature(id, timestamp, beginViewingDate, endViewingDate, missionName, quicklook);

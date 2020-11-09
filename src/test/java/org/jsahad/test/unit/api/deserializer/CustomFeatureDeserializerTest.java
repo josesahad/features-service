@@ -23,6 +23,7 @@ public class CustomFeatureDeserializerTest {
     private ObjectMapper objectMapper;
 
     private static final String JSON_SIMPLE_DATA_FILE = "src/test/resources/simple-data-test.json";
+    private static final String JSON_SIMPLE_MISSING_ATTR_DATA_FILE = "src/test/resources/simple-data-missing-attr-test.json";
     private static final String JSON_DATA_FILE = "src/test/resources/source-data-test.json";
 
     @Before
@@ -40,6 +41,18 @@ public class CustomFeatureDeserializerTest {
         assertEquals(1554831202043L, feature.getEndViewingDate());
         assertEquals("Sentinel-1B", feature.getMissionName());
         assertEquals("iVBORw0KGgoAAAANSUhEUgAAAgAAAAHRCAIAAACTkJa6AAEAAElEQVR4nOz9SZMkSZImivEmIqpm5ktE5FZZW1d3T/dMD703jwDCDSDccMNf", feature.getQuicklook());
+    }
+
+    @Test
+    public void simpleFeatureMissingAttributesStaticDataTest() throws JsonParseException, JsonMappingException, IOException {
+        Feature feature = this.objectMapper.readValue(Paths.get(JSON_SIMPLE_MISSING_ATTR_DATA_FILE).toFile(), new TypeReference<Feature>(){});
+
+        assertEquals(UUID.fromString("39c2f29e-c0f8-4a39-a98b-deed547d6aea"), feature.getId());
+        assertEquals(1554831167697L, feature.getTimestamp());
+        assertEquals(0L, feature.getBeginViewingDate());
+        assertEquals(0L, feature.getEndViewingDate());
+        assertEquals("Sentinel-1B", feature.getMissionName());
+        assertEquals(null, feature.getQuicklook());
     }
 
     @Test
