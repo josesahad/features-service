@@ -6,9 +6,9 @@ Spring Boot Service to expose images metadata.
 ## API
 The REST API exposes the following endpoints:
 ```
-- GET /features
-- GET /features/{featureId}
-- GET /features/{featureId}/quicklook
+- GET /api/features
+- GET /api/features/{featureId}
+- GET /api/features/{featureId}/quicklook
 ```
 ## Data Management
 The dataset is loaded from a json file. There is a default path defined in the _application-local_ profile but it is possible to override it by providing the **data.static.jsonFile** property when running the service (also possible by defining it as an environment variable).
