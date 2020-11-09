@@ -28,3 +28,9 @@ Some considerations regarding data handling:
 ## Running locally
 
 - Run with `mvn spring-boot:run -Dspring.profiles.active=local`
+
+By default, the service will expose in http://localhost:8080.
+
+## Micrometer + Prometheus
+
+- By default, Prometheus monitoring is enabled on http://localhost:8080/actuator/prometheus.

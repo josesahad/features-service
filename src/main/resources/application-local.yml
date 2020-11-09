@@ -5,3 +5,12 @@ logging:
 data:
   static:
     jsonFile: src/main/resources/source-data.json
+
+
+management:
+  endpoints:
+    metrics:
+      enabled: true
+    web:
+      exposure:
+        include: prometheus, info, health, metrics
