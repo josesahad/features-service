@@ -66,7 +66,7 @@ public class FeatureController {
      * @param featureId The id of the feature to retrieve.
      * @return Image for the given feature id.
      */
-    @RequestMapping(path = "/{featureId}/quicklook", method = GET, produces = "image/png")
+    @RequestMapping(path = "/{featureId}/quicklook", method = GET, produces = {"image/png", "application/json"})
     public ResponseEntity getImage(@PathVariable("featureId") UUID featureId) {
         return ResponseEntity.ok(this.featureService.getImage(featureId));
     }

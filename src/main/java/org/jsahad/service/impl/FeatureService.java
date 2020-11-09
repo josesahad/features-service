@@ -38,8 +38,7 @@ public class FeatureService {
     }
 
     public byte[] getImage(UUID featureId) {
-        Feature feature = this.featureDTO.getFeature(featureId).orElseThrow(() -> new FeatureNotFoundException(featureId));
-        return decodeBase64Image(feature.getQuicklook());
+        return decodeBase64Image(this.featureDTO.getFeature(featureId).orElseThrow(() -> new FeatureNotFoundException(featureId)).getQuicklook());
     }
 
     private byte[] decodeBase64Image(String base64Image) {
