@@ -1,0 +1,7 @@
+logging:
+    level:
+      org.jsahad: INFO
+
+data:
+  static:
+    jsonFile: src/main/resources/source-data.json
