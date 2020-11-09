@@ -1,6 +1,6 @@
 [![josesahad](https://circleci.com/gh/josesahad/metadata-service.svg?style=svg)](https://circleci.com/gh/josesahad/metadata-service)
 
-# Feature Service
+# Metadata Service
 Spring Boot Service to expose images metadata.
 
 ## API
@@ -18,6 +18,17 @@ Some considerations regarding data handling:
 - The data transformation (from JSON to the "model") is done through Jackson with a custom deserializer.
 - The **data store** keeps the Feature UUID as the key, and the representation of the Feature (see below) as entry.
 - The translation between the model and the Service happens in the **FeatureDTO**.
+
+### Feature Object
+
+Field | Type
+------------ | -------------
+id | UUID
+timestamp | long
+beginViewingTime | long
+endViewingTime | long
+missionName | String
+quicklook | String
 
 # Getting Started
 
