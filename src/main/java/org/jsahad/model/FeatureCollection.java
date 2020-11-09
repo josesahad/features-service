@@ -8,9 +8,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class FeatureCollection {
 
-    /**
-     * List of features.
-     */
     private List<Feature> features;
 
     /**
@@ -20,28 +17,14 @@ public class FeatureCollection {
 
     }
 
-    /**
-     * Builds the feature collection.
-     * 
-     * @param features  list of features.
-     * 
-     */
     public FeatureCollection(List<Feature> features) {
         this.features = features;
     }
 
-    /**
-     * Retrieves the list of features.
-     * 
-     * @return list of features.
-     */
     public List<Feature> getFeatures() {
         return this.features;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -55,9 +38,6 @@ public class FeatureCollection {
         return Objects.equals(this.features, featureCollection.features);
     }
 
-    /**
-     * @{inheritDoc}
-     */
     @Override
     public int hashCode() {
         return Objects.hash(this.features);

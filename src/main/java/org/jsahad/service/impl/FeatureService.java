@@ -13,17 +13,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class FeatureService {
 
-    /**
-     * Feature DTO.
-     */
     private final FeatureDTO featureDTO;
 
-    /**
-     * Builds a Feature Service.
-     * 
-     * @param featureDTO    feature DTO.
-     * 
-     */
     @Autowired
     public FeatureService(FeatureDTO featureDTO) {
         this.featureDTO = featureDTO;
