@@ -8,6 +8,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 import java.util.Optional;
@@ -37,6 +38,14 @@ public class FeatureServiceTest {
 
         List<Feature> features = featureService.listFeatures();
         assertEquals(2, features.size());
+    }
+
+    @Test
+    public void listEmptyFeaturesTest() {
+        when(this.featureDTO.getFeatures()).thenReturn(new ArrayList<>());
+
+        List<Feature> features = featureService.listFeatures();
+        assertEquals(0, features.size());
     }
 
     @Test
